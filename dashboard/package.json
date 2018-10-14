@@ -11,8 +11,14 @@
     "build": "npx webpack --progress --mode production"
   },
   "dependencies": {
+    "@blueprintjs/core": "^3.7.0",
+    "@blueprintjs/icons": "^3.2.0",
+    "apollo-boost": "^0.1.16",
+    "apollo-client": "^2.4.2",
+    "graphql": "0.13.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
+    "react-apollo": "^2.2.4",
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
