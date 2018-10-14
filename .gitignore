@@ -1,0 +1,11 @@
+
+# Common OS Files
+.DS_Store
+thumbs.db
+
+# Common IDE Caches
+.idea
+.vscode
+
+node_modules
+**/*.log
