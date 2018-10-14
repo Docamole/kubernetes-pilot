@@ -36,7 +36,7 @@ module.exports = {
     compress: true,
     open: true,
     proxy: {
-      '/graphql/**': {
+      '/graphql': {
         target: `http://localhost:${process.env.PORT || 8181}/`,
         secure: false
       }

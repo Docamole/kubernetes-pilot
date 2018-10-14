@@ -5,15 +5,16 @@ import { ApolloProvider } from 'react-apollo'
 
 import PilotClient from './PilotClient'
 
+import NavBar from './containers/NavBar'
+
 import '../sass/blueprint-js.scss'
 
 const pilot = new PilotClient()
 
 const App = () => (
-  <ApolloProvider client={pilot}>
-    <div>
-      Welcome to Pilot!
-    </div>
+  <ApolloProvider client={pilot.client}>
+    <NavBar />
+    ToDo: Get redux tied in and show the current namespace details from the dropdown above
   </ApolloProvider>
 )
 
