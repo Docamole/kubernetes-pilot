@@ -1,7 +1,7 @@
 const express = require('express')
 const { ApolloServer } = require('apollo-server-express')
 
-const { Schema } = require('./PilotAPI/Schema')
+const { Schema } = require('../PilotAPI/Schema')
 
 const app = express()
 
@@ -14,7 +14,7 @@ module.exports.PilotServer = class PilotServer {
   start() {
     this.server.applyMiddleware({ app })
     app.listen(this.port, () => {
-      console.log(`Kubernetes Pilot is running at http://localhost:${this.port}${this.server.graphqlPath}`)
+      console.log(`Kubernetes Pilot API is running at http://localhost:${this.port}${this.server.graphqlPath}`)
     })
   }
 }

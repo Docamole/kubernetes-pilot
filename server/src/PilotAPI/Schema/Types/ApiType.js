@@ -1,6 +1,5 @@
-const { gql } = require('apollo-server-express')
 
-module.exports.ApiType = gql`
+module.exports.ApiType = `
   type Api {
     version: String
   }

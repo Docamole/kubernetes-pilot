@@ -1,14 +1,15 @@
-const { gql } = require('apollo-server-express')
-
 const { ApiType } = require('./ApiType')
+const { NamespaceType } = require('./NamespaceType')
 
-const QueryType = gql`
+const QueryType = `
   type Query {
-    api: Api
+    api: Api,
+    namespaces: [Namespace]
   }
 `
 
 module.exports.Types = [
   QueryType,
-  ApiType
+  ApiType,
+  NamespaceType
 ]

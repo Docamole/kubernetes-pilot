@@ -1,5 +1,4 @@
-const { PilotAPI } = require('../../../PilotAPI')
 
 module.exports.ApiResolver = {
-  version: () => PilotAPI.version
+  version: api => api.version
 }
