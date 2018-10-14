@@ -1,8 +1,9 @@
 
 module.exports.NamespaceType = `
   type Namespace {
-    id: String!,
+    id: String,
     name: String,
-    status: String
+    status: String,
+    deployments: [Deployment]
   }
 `

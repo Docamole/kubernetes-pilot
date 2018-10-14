@@ -6,6 +6,9 @@
   "repository": "https://github.com/Docamole/kubernetes-pilot",
   "author": "Nicholaus Brabant <silv3rlogic@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./server"
+  },
   "devDependencies": {
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
