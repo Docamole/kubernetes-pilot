@@ -7,13 +7,15 @@
   "author": "Nicholaus Brabant <silv3rlogic@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./server"
+    "start": "npm-run-all --parallel start-server",
+    "start-server": "yarn --cwd ./server start"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "npm-run-all": "^4.1.3"
   }
 }

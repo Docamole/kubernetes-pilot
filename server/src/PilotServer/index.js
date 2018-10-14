@@ -14,29 +14,29 @@ module.exports.PilotServer = class PilotServer {
   }
 
   start() {
-    PilotServer.configureDashboard()
+    PilotServer.configureDashboard(this.port)
     app.listen(this.port, () => {
       console.log(`Pilot API:\t\thttp://localhost:${this.port}${this.server.graphqlPath}`)
     })
   }
 
-  static configureDashboard() {
+  static configureDashboard(port) {
     if (process.env.PILOT_DASH === 'disabled') {
-      console.log('Pilot Dashboard:\tDisabled (API running in development mode)')
+      console.log('Pilot Dashboard:\tDisabled')
     } else {
-      console.log(`Pilot Dashboard:\thttp://localhost:${this.port}/`)
+      console.log(`Pilot Dashboard:\thttp://localhost:${port}/`)
 
-      // Serve static files from dist directory
+      // Serve static files from dashboard/dist directory
       app.use(
         express.static(
-          path.join(__dirname, 'dist')
+          path.join(__dirname, '../../../dashboard/dist')
         )
       )
 
       // Handle default requests
       app.get('*', (req, res) => {
         res.sendFile(
-          path.join(__dirname, 'dist/index.html')
+          path.join(__dirname, '../../../dashboard/dist/index.html')
         )
       })
     }

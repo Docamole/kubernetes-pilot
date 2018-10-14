@@ -7,7 +7,7 @@
   "author": "Nicholaus Brabant <silv3rlogic@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "PILOT_DASH=disabled node ./src/main.js"
+    "start": "PILOT_DASH=disabled nodemon ."
   },
   "dependencies": {
     "apollo-server-express": "^2.1.0",
@@ -15,5 +15,7 @@
     "graphql": "0.13.1",
     "kubernetes-client": "^6.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
 }
