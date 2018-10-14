@@ -10,3 +10,9 @@ thumbs.db
 dist/**
 node_modules
 **/*.log
+
+#############
+# Whitelist #
+#############
+
+!dist/index.html
