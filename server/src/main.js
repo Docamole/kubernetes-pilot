@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { PilotServer } = require('./PilotServer')
 
 const apiServer = new PilotServer()

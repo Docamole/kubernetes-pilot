@@ -1,4 +1,7 @@
 
+# Packages
+**/*.tgz
+
 # Common OS Files
 .DS_Store
 thumbs.db

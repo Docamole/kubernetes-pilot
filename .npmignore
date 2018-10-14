@@ -1,0 +1,24 @@
+
+# Ignore Self
+**/*.tgz
+
+# Don't include sub-project node_modules, we'll include these as dependencies instead
+dashboard/node_modules/**
+server/node_modules/**
+
+# Project Files
+.editorconfig
+.eslintrc.yml
+.gitignore
+yarn.lock
+
+dashboard/package.json
+dashboard/yarn.lock
+
+server/package.json
+server/yarn.lock
+
+# Project Files
+.editorconfig
+.eslintrc.yml
+.gitignore
