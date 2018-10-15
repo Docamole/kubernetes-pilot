@@ -1,6 +1,6 @@
 {
   "name": "@docamole/kubernetes-pilot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dashboard and GraphQL API for managing Kubernetes resources.",
   "main": "./server/src/main.js",
   "repository": "https://github.com/Docamole/kubernetes-pilot",
