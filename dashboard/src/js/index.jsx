@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { ApolloProvider } from 'react-apollo'
 
-import PilotClient from './PilotClient'
+import PilotClient from './lib/PilotClient'
 
 import NavBar from './containers/NavBar'
 
@@ -14,7 +14,7 @@ const pilot = new PilotClient()
 const App = () => (
   <ApolloProvider client={pilot.client}>
     <NavBar />
-    ToDo: Get redux tied in and show the current namespace details from the dropdown above
+    <h4>Welcome to Pilot!</h4>
   </ApolloProvider>
 )
 

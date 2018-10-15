@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Navbar, Alignment } from '@blueprintjs/core'
 
-import Namespaces from '../../components/Namespaces'
+import NamespaceSelect from '../../components/NamespaceSelect'
 
 const NavBar = () => (
   <Navbar>
@@ -11,7 +11,7 @@ const NavBar = () => (
       <Navbar.Divider />
     </Navbar.Group>
     <Navbar.Group align={Alignment.RIGHT}>
-      <Namespaces />
+      <NamespaceSelect />
     </Navbar.Group>
   </Navbar>
 )
