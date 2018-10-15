@@ -14,7 +14,6 @@ const pilot = new PilotClient()
 const App = () => (
   <ApolloProvider client={pilot.client}>
     <NavBar />
-    <h4>Welcome to Pilot!</h4>
   </ApolloProvider>
 )
 

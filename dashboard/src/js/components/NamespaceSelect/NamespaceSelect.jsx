@@ -11,21 +11,24 @@ const NAMESPACES = gql`{
 
 const NamespaceSelect = () => (
   <Query
-    // pollInterval={2000}
     query={NAMESPACES}
   >
     {({
       loading, error, data, client
     }) => (
-      <div className="bp3-select">
-        <select
-          value={data.activeNamespace}
-          onChange={e => client.writeData({ data: { activeNamespace: e.target.value } })}
-        >
-          {(!loading && !error) && data.namespaces.map(({ name }) => (
-            <option key={name} value={name}>{name}</option>
-          ))}
-        </select>
+      <div>
+        Namespace:&nbsp;
+        <div className="bp3-select">
+          <select
+            value={data.activeNamespace}
+            onChange={e => client.writeData({ data: { activeNamespace: e.target.value } })}
+          >
+            {(!loading && !error) && data.namespaces.map(({ name }) => (
+              <option key={name} value={name}>{name}</option>
+            ))}
+          </select>
+        </div>
+        <button type="button" className="bp3-button bp3-icon-add" />
       </div>
     )}
   </Query>
