@@ -1,4 +1,4 @@
-const { KubeClient } = require('../../KubeClient')
+const { KubeClient } = require('../../../KubeClient')
 
 const kubernetes = new KubeClient()
 

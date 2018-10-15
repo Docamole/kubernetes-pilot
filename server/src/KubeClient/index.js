@@ -2,8 +2,15 @@ const { Client, config } = require('kubernetes-client')
 
 module.exports.KubeClient = class KubeClient {
   constructor() {
+    // Attempt to load config from current context, fallback to local config
+    try {
+      this.config = config.fromCluster()
+    } catch (err) {
+      this.config = config.fromKubeconfig()
+    }
+
     this.client = new Client({
-      config: config.fromKubeconfig(),
+      config: this.config,
       version: '1.10'
     })
     this.api = this.client.apis.v1
