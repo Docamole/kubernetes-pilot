@@ -26,13 +26,13 @@ yarn add -D @docamole/kubernetes-pilot
 Simply run the `pilot` cli tool to start the API and dashboard.
 ```bash
 pilot
-# > Pilot Dashboard:  http://localhost:8080/
-# > Pilot API:        http://localhost:8080/graphql
+# > Pilot Dashboard:  http://localhost:8181/
+# > Pilot API:        http://localhost:8181/graphql
 ```
 
-Visit [http://localhost:8080/](http://localhost:8080) for a visual resource management dashboard.
+Visit [http://localhost:8181/](http://localhost:8181) for a visual resource management dashboard.
 
-Visit [http://localhost:8080/graphql](http://localhost:8080/graphql) to explore the API
+Visit [http://localhost:8181/graphql](http://localhost:8181/graphql) to explore the API
 
 ## :octocat: Development
 
