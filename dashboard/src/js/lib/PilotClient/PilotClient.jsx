@@ -1,36 +1,61 @@
-import ApolloClient, { InMemoryCache, HttpLink } from 'apollo-boost'
+import { ApolloClient } from 'apollo-client'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { HttpLink } from 'apollo-link-http'
+import { onError } from 'apollo-link-error'
+import { withClientState } from 'apollo-link-state'
+import { ApolloLink } from 'apollo-link'
 
 import clientTypes from './clientTypes.graphql'
 
-const defaults = {
-  workspace: {
-    activeNamespace: 'default',
-    __typename: 'Workspace'
-  }
-}
-
-// FIXME: Try passing an ApolloLink built from HttpLink
-// (note: need to move ApolloClient back into the brackets to import core client)
-
 class PilotClient {
   constructor() {
-    // this.link = new HttpLink()
     this.cache = new InMemoryCache()
+    this.link = ApolloLink.from([
+      onError(({ graphQLErrors, networkError }) => {
+        if (graphQLErrors) {
+          graphQLErrors.map(({ message, location, path }) => {
+            console.log(`[GraphQL Error]: Message: ${message}, Location: ${location}, Path: ${path}`)
+          })
+        }
+        if (networkError) {
+          console.log(`[Network Error]: ${networkError}`)
+        }
+      }),
+      withClientState({
+        defaults: PilotClient.defaults(),
+        resolvers: PilotClient.resolvers(),
+        typeDefs: clientTypes,
+        cache: this.cache
+      }),
+      new HttpLink({
+        uri: '/graphql',
+        credentials: 'same-origin'
+      })
+    ])
     this.client = new ApolloClient({
-      // link: this.link,
+      link: this.link,
       cache: this.cache,
-      clientState: {
-        defaults,
-        resolvers: this.resolvers(),
-        typeDefs: clientTypes
+      fetchOptions: {
+        credentials: 'include'
       }
     })
   }
 
-  resolvers() {
+  static defaults() {
+    return {
+      workspace: {
+        activeNamespace: 'default',
+        __typename: 'Workspace'
+      }
+    }
+  }
+
+  static resolvers() {
     return {
       Query: {
-        activeNamespace: () => this.cache.data.data['$ROOT_QUERY.workspace'].activeNamespace
+        activeNamespace: (obj, args, { cache }) => {
+          return cache.data.data['$ROOT_QUERY.workspace'].activeNamespace
+        }
       }
     }
   }
