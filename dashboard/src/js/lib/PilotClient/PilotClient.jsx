@@ -3,7 +3,19 @@ import ApolloClient from 'apollo-boost'
 import typeDefs from './typeDefs.graphql'
 
 const defaults = {
-  activeNamespace: 'default'
+  workspace: {
+    activeNamespace: 'default',
+    __typename: 'Workspace'
+  }
+}
+
+const resolvers = {
+  Query: {
+    activeNamespace: (args, vars, { cache }) => {
+      const namespace = cache.data.data['$ROOT_QUERY.workspace'].activeNamespace
+      return namespace
+    }
+  }
 }
 
 class PilotClient {
@@ -11,7 +23,7 @@ class PilotClient {
     this.client = new ApolloClient({
       clientState: {
         defaults,
-        resolvers: {},
+        resolvers,
         typeDefs
       }
     })
