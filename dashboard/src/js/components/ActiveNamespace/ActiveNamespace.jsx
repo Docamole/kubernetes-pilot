@@ -2,6 +2,8 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import { Card, Elevation } from '@blueprintjs/core'
+
 const ACTIVE_NAMESPACE = gql`{
   activeNamespace @client
 }`
@@ -28,13 +30,14 @@ const ActiveNamespace = () => (
           if (error) return `Error!: ${error}`
           return (
             <React.Fragment>
-              <ul>
-                {data.namespace.deployments.map(deployment => (
-                  <li key={deployment.name}>
-                    {deployment.name}
-                  </li>
-                ))}
-              </ul>
+              {data.namespace.deployments.map(deployment => (
+                <React.Fragment key={deployment.name}>
+                  <Card interactive elevation={Elevation.TWO}>
+                    <h5><a href="#">{deployment.name}</a></h5>
+                  </Card>
+                  <br />
+                </React.Fragment>
+              ))}
             </React.Fragment>
           )
         }}
