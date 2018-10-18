@@ -3,11 +3,10 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const NAMESPACES = gql`{
+  activeNamespace @client
   namespaces {
+    id
     name
-  }
-  workspace @client {
-    activeNamespace
   }
 }`
 
@@ -25,10 +24,7 @@ const NamespaceSelect = () => (
             value={data.activeNamespace}
             onChange={e => client.writeData({ // TODO: Implement this as a mutation?
               data: {
-                workspace: {
-                  activeNamespace: e.target.value,
-                  __typename: 'Workspace'
-                }
+                activeNamespace: e.target.value
               }
             })}
           >

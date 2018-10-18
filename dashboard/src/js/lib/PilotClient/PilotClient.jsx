@@ -4,6 +4,7 @@ import { HttpLink } from 'apollo-link-http'
 import { onError } from 'apollo-link-error'
 import { withClientState } from 'apollo-link-state'
 import { ApolloLink } from 'apollo-link'
+import gql from 'graphql-tag'
 
 import clientTypes from './clientTypes.graphql'
 
@@ -43,21 +44,12 @@ class PilotClient {
 
   static defaults() {
     return {
-      workspace: {
-        activeNamespace: 'default',
-        __typename: 'Workspace'
-      }
+      activeNamespace: 'default'
     }
   }
 
   static resolvers() {
-    return {
-      Query: {
-        activeNamespace: (obj, args, { cache }) => {
-          return cache.data.data['$ROOT_QUERY.workspace'].activeNamespace
-        }
-      }
-    }
+    return {}
   }
 }
 
