@@ -1,5 +1,3 @@
-const { KubeClient } = require('../../../KubeClient')
-
 const { ComponentStatusResolver } = require('./ComponentStatusResolver')
 const { ConfigMapResolver } = require('./ConfigMapResolver')
 const { DeploymentResolver } = require('./DeploymentResolver')
@@ -17,6 +15,7 @@ const { SecretResolver } = require('./SecretResolver')
 const { ServiceAccountResolver } = require('./ServiceAccountResolver')
 const { ServiceResolver } = require('./ServiceResolver')
 
+const { KubeClient } = require('../../../KubeClient')
 const kubernetes = new KubeClient()
 
 const QueryResolver = {

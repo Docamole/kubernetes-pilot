@@ -10,6 +10,7 @@
     "start": "PILOT_DASH=disabled nodemon ."
   },
   "dependencies": {
+    "@creditkarma/graphql-loader": "^0.7.1",
     "apollo-server-express": "^2.1.0",
     "express": "^4.16.4",
     "graphql": "0.13.1",
