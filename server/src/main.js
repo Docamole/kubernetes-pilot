@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { PilotServer } = require('./PilotServer')
+const { Server } = require('./Server')
 
-const apiServer = new PilotServer()
-apiServer.start()
+const pilotServer = new Server()
+pilotServer.start()

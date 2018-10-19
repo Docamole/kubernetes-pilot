@@ -7,7 +7,7 @@
   "author": "Nicholaus Brabant <silv3rlogic@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "PILOT_DASH=disabled nodemon ."
+    "start": "DASHBOARD=disable nodemon ."
   },
   "dependencies": {
     "apollo-server-express": "^2.1.0",
