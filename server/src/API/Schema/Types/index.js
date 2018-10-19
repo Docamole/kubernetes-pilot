@@ -1,3 +1,4 @@
+const { QueryType } = require('./_QueryType')
 const { ComponentStatusType } = require('./ComponentStatusType')
 const { ConfigMapType } = require('./ConfigMapType')
 const { DeploymentType } = require('./DeploymentType')
@@ -15,31 +16,6 @@ const { ResourceQuotaType } = require('./ResourceQuotaType')
 const { SecretType } = require('./SecretType')
 const { ServiceAccountType } = require('./ServiceAccountType')
 const { ServiceType } = require('./ServiceType')
-
-// TODO: Split Types directory into Queries and Mutations
-const QueryType = `
-  type Query {
-    componentStatuses: [ComponentStatus],
-    componentStatus(name: String!): ComponentStatus,
-    configMaps: [ConfigMap],
-    deployments: [Deployment],
-    endpoints: [Endpoint],
-    events: [Event],
-    limitRanges: [LimitRange],
-    namespaces: [Namespace],
-    namespace(name: String!): Namespace,
-    nodes: [Node],
-    persistentVolumeClaims: [PersistentVolumeClaim],
-    persistentVolumes: [PersistentVolume],
-    podTemplates: [PodTemplate],
-    pods: [Pod],
-    replicationControllers: [ReplicationController],
-    resourceQuotas: [ResourceQuota],
-    secrets: [Secret],
-    serviceAccounts: [ServiceAccount],
-    services: [Service]
-  }
-`
 
 module.exports.Types = [
   QueryType,
