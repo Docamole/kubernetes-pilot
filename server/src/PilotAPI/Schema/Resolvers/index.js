@@ -1,21 +1,21 @@
-const { PilotAPI } = require('../../../PilotAPI')
 const { KubeClient } = require('../../../KubeClient')
 
-const { ConfigResolver } = require('./ConfigResolver')
+const { ComponentStatusResolver } = require('./ComponentStatusResolver')
 const { DeploymentResolver } = require('./DeploymentResolver')
 const { NamespaceResolver } = require('./NamespaceResolver')
 
 const kubernetes = new KubeClient()
 
 const QueryResolver = {
-  config: () => PilotAPI.config,
+  componentStatuses: () => kubernetes.componentStatuses(),
+  componentStatus: (obj, args) => kubernetes.componentStatus(args.name),
   namespaces: () => kubernetes.namespaces(),
   namespace: (obj, args) => kubernetes.namespace(args.name)
 }
 
 module.exports.Resolvers = {
   Query: QueryResolver,
-  Config: ConfigResolver,
+  ComponentStatus: ComponentStatusResolver,
   Deployment: DeploymentResolver,
   Namespace: NamespaceResolver
 }
