@@ -20,13 +20,13 @@ const kubernetes = new KubeClient()
 
 const QueryResolver = {
   componentStatuses: () => kubernetes.componentStatuses(),
-  componentStatus: (obj, args) => kubernetes.componentStatus(args.name),
+  componentStatus: (_, { name }) => kubernetes.componentStatus(name),
   configMaps: () => kubernetes.configMaps(),
   endpoints: () => kubernetes.endpoints(),
   events: () => kubernetes.events(),
   limitRanges: () => kubernetes.limitRanges(),
   namespaces: () => kubernetes.namespaces(),
-  namespace: (obj, args) => kubernetes.namespace(args.name),
+  namespace: (_, { name }) => kubernetes.namespace(name),
   nodes: () => kubernetes.nodes(),
   persistentVolumeClaims: () => kubernetes.persistentVolumeClaims(),
   persistentVolumes: () => kubernetes.persistentVolumes(),
