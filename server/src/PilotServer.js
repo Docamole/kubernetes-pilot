@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const { ApolloServer } = require('apollo-server-express')
 
-const { Schema } = require('../PilotAPI/Schema')
+const { Schema } = require('./PilotAPI/Schema')
 
 const app = express()
 
@@ -29,14 +29,14 @@ module.exports.PilotServer = class PilotServer {
       // Serve static files from dashboard/dist directory
       app.use(
         express.static(
-          path.join(__dirname, '../../../dashboard/dist')
+          path.join(__dirname, '../../dashboard/dist')
         )
       )
 
       // Handle default requests
       app.get('*', (req, res) => {
         res.sendFile(
-          path.join(__dirname, '../../../dashboard/dist/index.html')
+          path.join(__dirname, '../../dashboard/dist/index.html')
         )
       })
     }

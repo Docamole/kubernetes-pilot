@@ -16,6 +16,7 @@ const { SecretType } = require('./SecretType')
 const { ServiceAccountType } = require('./ServiceAccountType')
 const { ServiceType } = require('./ServiceType')
 
+// TODO: Split Types directory into Queries and Mutations
 const QueryType = `
   type Query {
     componentStatuses: [ComponentStatus],
