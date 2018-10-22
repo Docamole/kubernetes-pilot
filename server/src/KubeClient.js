@@ -83,6 +83,7 @@ module.exports.KubeClient = class KubeClient {
   // TODO: Move this to APPS section?
   async scopedDeployments(namespace)    { return ITEMS(await this.apps.namespaces(namespace).deployments.get()) }
 
+  // This could be used for editing too, does it work like kubectl apply?
   async createNamespace(namespace) {
     await this.api.namespaces.post({
       body: {

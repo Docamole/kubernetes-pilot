@@ -1,6 +1,6 @@
 {
   "name": "kubernetes-pilot-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GraphQL API for kubernetes-pilot",
   "main": "./src/main.js",
   "repository": "https://github.com/Docamole/kubernetes-pilot",
