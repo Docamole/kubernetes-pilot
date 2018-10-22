@@ -82,4 +82,20 @@ module.exports.KubeClient = class KubeClient {
 
   // TODO: Move this to APPS section?
   async scopedDeployments(namespace)    { return ITEMS(await this.apps.namespaces(namespace).deployments.get()) }
+
+  async createNamespace(namespace) {
+    await this.api.namespaces.post({
+      body: {
+        kind: 'Namespace',
+        apiVersion: 'v1',
+        metadata: {
+          name: namespace,
+          labels: {
+            name: namespace
+          }
+        }
+      }
+    })
+    return this.namespace(namespace)
+  }
 }

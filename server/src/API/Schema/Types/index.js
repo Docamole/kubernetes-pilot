@@ -17,8 +17,15 @@ const { SecretType } = require('./SecretType')
 const { ServiceAccountType } = require('./ServiceAccountType')
 const { ServiceType } = require('./ServiceType')
 
+const MutationType = `
+  type Mutation {
+    createNamespace(name: String!): Namespace
+  }
+`
+
 module.exports.Types = [
   QueryType,
+  MutationType,
   ComponentStatusType,
   ConfigMapType,
   DeploymentType,

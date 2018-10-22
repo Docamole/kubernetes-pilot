@@ -38,8 +38,13 @@ const QueryResolver = {
   services: () => kubernetes.services()
 }
 
+const MutationResolver = {
+  createNamespace: (_, { name }) => kubernetes.createNamespace(name)
+}
+
 module.exports.Resolvers = {
   Query: QueryResolver,
+  Mutation: MutationResolver,
   ComponentStatus: ComponentStatusResolver,
   ConfigMap: ConfigMapResolver,
   Deployment: DeploymentResolver,
