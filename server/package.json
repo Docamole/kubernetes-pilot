@@ -1,13 +1,13 @@
 {
   "name": "kubernetes-pilot-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GraphQL API for kubernetes-pilot",
   "main": "./src/main.js",
   "repository": "https://github.com/Docamole/kubernetes-pilot",
   "author": "Nicholaus Brabant <silv3rlogic@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "PILOT_DASH=disabled nodemon ."
+    "start": "DASHBOARD=disable nodemon ."
   },
   "dependencies": {
     "apollo-server-express": "^2.1.0",
