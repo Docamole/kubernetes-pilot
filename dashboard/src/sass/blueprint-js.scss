@@ -3,17 +3,17 @@
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
 
-// @import '~react-mosaic-component/react-mosaic-component.css';
+@import '~react-mosaic-component/react-mosaic-component.css';
 
 html,
 body,
-#react-root {
+#pilot-root {
   background-color: $pt-dark-app-background-color;
   height: 100%;
   width: 100%;
   margin: 0;
 }
 
-body {
-  // padding-top: $pt-navbar-height;
-}
+// body {
+//   padding-top: $pt-navbar-height;
+// }

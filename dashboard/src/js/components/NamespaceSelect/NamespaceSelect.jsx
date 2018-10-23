@@ -18,7 +18,7 @@ const NamespaceSelect = () => (
       loading, error, data, client
     }) => (
       <div>
-        Namespace:&nbsp;
+        Namespace&nbsp;
         <div className="bp3-select">
           <select
             value={data.activeNamespace}
@@ -33,7 +33,6 @@ const NamespaceSelect = () => (
             ))}
           </select>
         </div>
-        <button type="button" className="bp3-button bp3-icon-add" />
       </div>
     )}
   </Query>
